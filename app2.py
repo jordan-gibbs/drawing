@@ -7,6 +7,9 @@ import base64
 import time
 import numpy as np
 import requests
+import os
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(layout="wide")
 st.title("Drawing-2-AI")
