@@ -10,6 +10,7 @@ import requests
 import os
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
 
 st.set_page_config(layout="wide")
 st.title("Drawing-2-AI")
