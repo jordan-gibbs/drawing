@@ -18,6 +18,19 @@ st.set_page_config(
     layout="wide"
 )
 
+with open("style.css") as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
+hide_streamlit_style = """
+            <style>
+            #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.title("Drawing-2-AI")
 
 # Layout with two columns
@@ -43,11 +56,13 @@ tools = {
 with col1:
     # Sidebar selectbox using the dictionary keys
     st.subheader("Draw anything on the canvas below")
-    selected_label = st.sidebar.selectbox("Drawing tool:", list(tools.keys()))
+    # selected_label = st.sidebar.selectbox("Drawing tool:", list(tools.keys()))
 
     # Get the corresponding tool from the dictionary
-    drawing_mode = tools[selected_label]
-    stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+    # drawing_mode = tools[selected_label]
+    drawing_mode = "freedraw"
+    # stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+    stroke_width = 20
     stroke_color = '#000000'
     bg_color = '#FFFFFF'
     bg_image = None
@@ -67,11 +82,13 @@ with col1:
         "Cartoon": "a cartoon drawing of a"
     }
 
-    quality = st.sidebar.radio("Image Quality", list(quality_mapping.keys()), index=1)
-    quality_value = quality_mapping[quality]
+    # quality = st.sidebar.radio("Image Quality", list(quality_mapping.keys()), index=1)
+    # quality_value = quality_mapping[quality]
+    quality = 7
 
-    selected_art_style = st.sidebar.selectbox("Art Style:", list(art_styles.keys()))
-    art_style_prompt = art_styles[selected_art_style]
+    # selected_art_style = st.sidebar.selectbox("Art Style:", list(art_styles.keys()))
+    # art_style_prompt = art_styles[selected_art_style]
+    art_style_prompt = "a detailed oil painting of a"
 
     canvas_size = 512  # Setting both width and height to 512 to make the canvas square
     canvas_result = st_canvas(
