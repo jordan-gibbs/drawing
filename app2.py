@@ -84,7 +84,7 @@ with col1:
 
     # quality = st.sidebar.radio("Image Quality", list(quality_mapping.keys()), index=1)
     # quality_value = quality_mapping[quality]
-    quality = 7
+    quality_value = 7
 
     # selected_art_style = st.sidebar.selectbox("Art Style:", list(art_styles.keys()))
     # art_style_prompt = art_styles[selected_art_style]
