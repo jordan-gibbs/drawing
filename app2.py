@@ -55,7 +55,7 @@ tools = {
 
 with col1:
     # Sidebar selectbox using the dictionary keys
-    st.subheader("Draw anything on the canvas below")
+    st.subheader("Draw something:")
     # selected_label = st.sidebar.selectbox("Drawing tool:", list(tools.keys()))
 
     # Get the corresponding tool from the dictionary
@@ -90,7 +90,7 @@ with col1:
     # art_style_prompt = art_styles[selected_art_style]
     art_style_prompt = "a detailed oil painting of a"
 
-    canvas_size = 512  # Setting both width and height to 512 to make the canvas square
+    canvas_size = 400  # Setting both width and height to 512 to make the canvas square
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
         stroke_width=stroke_width,
@@ -161,7 +161,7 @@ def generate_ai_image(img_base64, description):
             "eta": 0,
             "image": f"data:image/png;base64,{img_base64}",
             "scale": 9,
-            "prompt": f"{description} {art_style_prompt}, masterpiece, perfection",
+            "prompt": f" {art_style_prompt} {description}, masterpiece, perfection",
             "a_prompt": "best quality, extremely detailed",
             "n_prompt": "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
             "ddim_steps": quality_value,
@@ -212,6 +212,6 @@ if st.session_state.run_api_call:
         generated_image_url = output[1]
         with col2:
             st.subheader("AI Image")
-            st.image(generated_image_url)
+            st.image(generated_image_url, width=400)
     else:
         st.write("Error in generating image")
