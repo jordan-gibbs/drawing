@@ -31,7 +31,7 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.title("Drawing-2-AI")
+st.title("🖼️Drawing-2-AI")
 
 # Layout with two columns
 col1, col2 = st.columns(2)
@@ -128,10 +128,10 @@ def describe_image(img_bytes, api_key):
                 "content": [
                     {
                         "type": "text",
-                        "text": "Describe what the object(s) in this drawing looks like in a concise manner."
-                                "Only output the object(s), nothing else, no descriptors, just try to see what it is."
-                                "Don't ever say it's a drawing. No punctuation. Concise and comma separated. Never say stick figure, always"
-                                " assume a form, like a human, animal, or other object. Also add in composition details if applicable."
+                        "text": "Describe what the object(s) in this drawing look like in a concise manner."
+                                "Only output the object(s), nothing else, few descriptors, just try to see what it most closely resembles."
+                                "Don't ever say it's a drawing. Never talk in lines or shapes; be creative and imagine what the drawing is. No punctuation. Concise and comma separated. Never say stick figure. Always"
+                                " assume it is an intentional form, like a human, animal, or other object. Never assume it is just abstrat lines."
                     },
                     {
                         "type": "image_url",
